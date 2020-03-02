@@ -7,5 +7,8 @@ public class Radiator {
         //Taking mad pills. My homie. You know me. Slicin off the tip. Going for a trip. Lightin up a spliff
         //fuck youuuuuuuu
         //Dont tell me what to do
+        if(0!=x) {
+            () -> suckMyDick;
+        }
     }
 }
