@@ -1,4 +1,7 @@
-package core;
+package model;
+
+import model.OffState;
+import model.RadiatorState;
 
 public class Radiator {
     private RadiatorState currentState = new OffState();
@@ -19,8 +22,7 @@ public class Radiator {
     {
         return currentState;
     }
-    public int getPower()
-    {
-        return currentState.getPower();
+    public void getPower(){
+
     }
 }

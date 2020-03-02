@@ -1,4 +1,6 @@
-package core;
+package model;
+
+import model.Radiator;
 
 public interface RadiatorState
 {
