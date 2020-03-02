@@ -1,6 +1,7 @@
 package core;
 
 public class Radiator {
-    //this is a test class
-  //blalalbasf
+    public static void main(String[] args) {
+        System.out.println("lol");
+    }
 }
