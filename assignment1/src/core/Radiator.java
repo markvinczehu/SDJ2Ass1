@@ -10,5 +10,6 @@ public class Radiator {
         if(0!=x) {
             () -> suckMyDick;
         }
+        System.out.println("I slowly begin to remove your shirt. Your nipple hard enough to cut diamond. I undo my trousers. My lizard is peeking from within");
     }
 }
