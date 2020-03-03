@@ -17,11 +17,11 @@ public class ViewHandler {
   private BarChartViewModel barChartVM;
   private LineChartViewModel lineChartVM;
 
-  public ViewHandler(Stage stage, ViewModelFactory vmf) {
+  public ViewHandler(Stage bs, Stage ls, ViewModelFactory vmf) {
 
     viewModelFactory = vmf;
-    barStage = stage;
-    lineStage = stage;
+    barStage = bs;
+    lineStage = ls;
   }
 
   public void start() {
@@ -37,7 +37,7 @@ public class ViewHandler {
     FXMLLoader();
   }
 
-  private void FXMLLoader() {
+  public void FXMLLoader() {
     FXMLLoader loader = new FXMLLoader();
 
     if(barChartViewScene == null && lineChartViewScene == null) {
