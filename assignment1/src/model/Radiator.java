@@ -26,15 +26,15 @@ public class Radiator implements RadiatorState
 
     @Override public void onButtonUp(Radiator radiator)
     {
-
+        radiator.turnUp();
     }
 
     @Override public void onButtonDown(Radiator radiator)
     {
-
+        radiator.turnDown();
     }
 
-    public void getPower(){
-
+    public int getPower(){
+       return getPower();
     }
 }
