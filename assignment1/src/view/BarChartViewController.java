@@ -14,7 +14,6 @@ public class BarChartViewController
 
  private BarChartViewModel vm;
 
-
  public void init(BarChartViewModel viewModel)
  {
    vm = viewModel;

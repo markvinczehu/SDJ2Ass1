@@ -3,7 +3,8 @@ package model;
 import model.OffState;
 import model.RadiatorState;
 
-public class Radiator {
+public class Radiator implements RadiatorState
+{
     private RadiatorState currentState = new OffState();
 
     public void turnUp()
@@ -22,7 +23,18 @@ public class Radiator {
     {
         return currentState;
     }
-    public void getPower(){
 
+    @Override public void onButtonUp(Radiator radiator)
+    {
+        radiator.turnUp();
+    }
+
+    @Override public void onButtonDown(Radiator radiator)
+    {
+        radiator.turnDown();
+    }
+
+    public int getPower(){
+       return getPower();
     }
 }
