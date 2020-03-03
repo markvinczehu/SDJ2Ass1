@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.LineChartViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<LineChart fx:id="lineChartView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <xAxis>
+    <CategoryAxis fx:id="timeX" side="BOTTOM" />
+  </xAxis>
+  <yAxis>
+    <NumberAxis fx:id="temperatureY" side="LEFT" />
+  </yAxis>
+</LineChart>
