@@ -2,8 +2,16 @@ package model;
 
 public class Thermometer
 {
+    private String id;
+    private double t;
+    private int d;
 
-
+  public Thermometer(String id, double t, int d)
+    {
+      this.id = id;
+      this.t = t;
+      this.d = d;
+    }
 
   public double temperature(double t, int p, int d, double t0, int s)
   {
