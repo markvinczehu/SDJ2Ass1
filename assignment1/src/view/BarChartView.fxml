@@ -3,12 +3,18 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BarChart fx:id="bartChartView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <xAxis>
-    <CategoryAxis fx:id="timeX" side="BOTTOM" />
-  </xAxis>
-  <yAxis>
-    <NumberAxis fx:id="temperatureY" side="LEFT" />
-  </yAxis>
-</BarChart>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BarChartViewController">
+    <children>
+        <BarChart fx:id="barChart" prefHeight="400.0" prefWidth="600.0">
+            <xAxis>
+                <CategoryAxis fx:id="thermometers" prefHeight="26.0" prefWidth="543.0" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="temperature" side="LEFT" />
+            </yAxis>
+        </BarChart>
+    </children>
+</AnchorPane>

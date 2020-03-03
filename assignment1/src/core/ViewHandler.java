@@ -14,8 +14,4 @@ public class ViewHandler
     this.stage = stage;
     this.vmf = vmf;
   }
-
-  public void start()
-  {
-  }
 }
