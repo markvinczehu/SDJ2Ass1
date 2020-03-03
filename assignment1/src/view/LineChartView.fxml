@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
@@ -11,10 +11,10 @@
     <items>
     <LineChart fx:id="lineChartView" prefHeight="198.0" prefWidth="457.0">
         <xAxis>
-            <CategoryAxis fx:id="thermometers" prefHeight="26.0" prefWidth="543.0" side="BOTTOM" />
+            <CategoryAxis fx:id="timeX" prefHeight="26.0" prefWidth="543.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
-            <NumberAxis fx:id="temperature" side="LEFT" />
+            <NumberAxis fx:id="tempY" side="LEFT" />
         </yAxis>
     </LineChart>
     <SplitPane dividerPositions="0.485" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">

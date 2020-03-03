@@ -1,12 +1,12 @@
 package viewmodel;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
-import model.Radiator;
 import model.RadiatorState;
+
 
 public class BarChartViewModel
 {
