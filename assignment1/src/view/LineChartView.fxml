@@ -3,12 +3,18 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<LineChart fx:id="lineChartView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <xAxis>
-    <CategoryAxis fx:id="timeX" side="BOTTOM" />
-  </xAxis>
-  <yAxis>
-    <NumberAxis fx:id="temperatureY" side="LEFT" />
-  </yAxis>
-</LineChart>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LineChartViewController">
+   <children>
+      <LineChart fx:id="lineChartView" layoutX="25.0" layoutY="5.0" prefHeight="381.0" prefWidth="542.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>
