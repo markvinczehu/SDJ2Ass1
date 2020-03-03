@@ -11,25 +11,51 @@ import viewmodel.LineChartViewModel;
 import java.io.IOException;
 
 public class ViewHandler {
-  private Stage barStage, lineStage;
+  private Stage stage;
   private ViewModelFactory viewModelFactory;
   private Scene barChartViewScene, lineChartViewScene;
   private BarChartViewModel barChartVM;
   private LineChartViewModel lineChartVM;
+  private ViewModelFactory vmf;
 
-  public ViewHandler(Stage bs, Stage ls, ViewModelFactory vmf) {
+  public ViewHandler(ViewModelFactory vmf, Stage stage) {
 
-    viewModelFactory = vmf;
-    barStage = bs;
-    lineStage = ls;
+    this.vmf = vmf;
+    this.stage = stage;
   }
 
-  public void start() {
-    barChartViewScene();
-    lineChartViewScene();
+  public void start() throws Exception
+  {
+    openChartView("LineChart");
   }
 
-  public void barChartViewScene() {
+    public void openChartView(String viewToOpen) throws IOException
+    {
+      Scene scene = null;
+      FXMLLoader loader = new FXMLLoader();
+      Parent root = null;
+
+      loader.setLocation(getClass().getResource("../view" + "/" + viewToOpen + "View.fxml"));
+      root = loader.load();
+      /*if("BarChart".equals(viewToOpen)){
+        BarChartViewController view = loader.getController();
+        view.init(vmf.getBarChartViewModel());
+        stage.setTitle("BarChartView");
+      }*/
+      if("LineChart".equals(viewToOpen))
+      {
+        LineChartViewController view = loader.getController();
+        view.init(vmf.getLineChartViewModel());
+        stage.setTitle("LineChartView");
+      }
+      scene = new Scene(root);
+      //barStage.setScene(scene);
+      //barStage.show();
+      stage.setScene(scene);
+      stage.show();
+    }
+
+  /*public void barChartViewScene() {
     FXMLLoader();
   }
 
@@ -37,7 +63,7 @@ public class ViewHandler {
     FXMLLoader();
   }
 
-  public void FXMLLoader() {
+  private void FXMLLoader() {
     FXMLLoader loader = new FXMLLoader();
 
     if(barChartViewScene == null && lineChartViewScene == null) {
@@ -50,12 +76,12 @@ public class ViewHandler {
       barChartViewScene = new Scene(root1);
       lineChartViewScene = new Scene(root2);
     }
-    barStage.setTitle("Bar Chart");
-    barStage.setScene(barChartViewScene);
-    lineStage.setTitle("Line chart");
-    lineStage.setScene(lineChartViewScene);
-    barStage.show();
-    lineStage.show();
+    stage.setTitle("Bar Chart");
+    stage.setScene(barChartViewScene);
+    stage.setTitle("Line chart");
+    stage.setScene(lineChartViewScene);
+    stage.show();
+    stage.show();
   }
 
   private Parent getRootByPath(String path, FXMLLoader loader) {
@@ -68,5 +94,6 @@ public class ViewHandler {
     }
     return root;
   }
+   */
 }
 

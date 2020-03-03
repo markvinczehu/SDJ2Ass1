@@ -1,11 +1,13 @@
 package core;
 
 import viewmodel.BarChartViewModel;
+import viewmodel.LineChartViewModel;
 
 public class ViewModelFactory
 {
   private ModelFactory modelFactory;
   private BarChartViewModel barChartViewModel;
+  private LineChartViewModel lineChartViewModel;
 
   public ViewModelFactory(ModelFactory modelFactory)
   {
@@ -19,5 +21,13 @@ public class ViewModelFactory
     barChartViewModel = new BarChartViewModel(modelFactory.getRadiatorState());
     }
     return barChartViewModel;
+  }
+  public LineChartViewModel getLineChartViewModel()
+  {
+    if(lineChartViewModel == null)
+    {
+      lineChartViewModel = new LineChartViewModel(modelFactory.getRadiatorState());
+    }
+    return lineChartViewModel;
   }
 }

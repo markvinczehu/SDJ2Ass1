@@ -27,7 +27,10 @@ public class LineChartViewController
       temperature.lowerBoundProperty().bind(vm.lowerBoundProperty());
       temperature.setTickUnit(0.1);
 
-      lineChart.getData().add(vm.temperatureProperty());
-      lineChart.getData().add(vm.thermometerProperty());
+      while(true)
+      {
+        lineChart.getData().add(vm.temperatureProperty());
+        lineChart.getData().add(vm.thermometerProperty());
+      }
     }
 }

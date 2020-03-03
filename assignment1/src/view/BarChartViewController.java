@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import viewmodel.BarChartViewModel;
 
 public class BarChartViewController
@@ -17,16 +18,15 @@ public class BarChartViewController
  public void init(BarChartViewModel viewModel)
  {
    vm = viewModel;
+   XYChart.Series set1 = new XYChart.Series<>();
+   set1.getData().add(new XYChart.Data("ThermometerOne", vm.thermometerProperty()));
+   set1.getData().add(new XYChart.Data("ThermometerTwo", vm.thermometerProperty()));
+   set1.getData().add(new XYChart.Data("ThermometerThree", vm.thermometerProperty()));
 
    temperature.setLabel("Temperature");
    thermometers.setLabel("Thermometers");
 
-   temperature.setAutoRanging(false);
-   temperature.upperBoundProperty().bind(vm.upperBoundProperty());
-   temperature.lowerBoundProperty().bind(vm.lowerBoundProperty());
-   temperature.setTickUnit(0.1);
+   barChart.getData().addAll(set1);
 
-   barChart.getData().add(vm.temperatureProperty());
-   barChart.getData().add(vm.thermometerProperty());
  }
 }
