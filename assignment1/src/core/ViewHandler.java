@@ -23,6 +23,7 @@ public class ViewHandler
 
   public void start() {
     barChartViewScene();
+    lineChartViewScene();
   }
 
   public void barChartViewScene() {
@@ -31,7 +32,7 @@ public class ViewHandler
     if(barChartViewScene == null) {
       Parent root = getRootByPath("../BarChartView.fxml", loader);
       BarChartViewController controller = loader.getController();
-      controller.init(this, viewModelFactory.BarChartViewModel());
+      controller.init(barChartVM);
       barChartViewScene = new Scene(root);
     }
     mainStage.setTitle("Bar Chart");
@@ -39,11 +40,7 @@ public class ViewHandler
     mainStage.show();
   }
 
-  public static void openAddTaskView() {
-
-  }
-
-  public static void openGetNextTaskView() {
+  public void lineChartViewScene() {
 
   }
 
