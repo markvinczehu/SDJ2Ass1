@@ -15,8 +15,8 @@ public class BarChartViewController
  private BarChartViewModel vm;
 
 
-//this method needs work. Upperbound and lowerbound are not the variables that need to be bound.
-/* public void init(BarChartViewModel viewModel)
+
+ public void init(BarChartViewModel viewModel)
  {
    vm = viewModel;
 
@@ -30,5 +30,5 @@ public class BarChartViewController
 
    barChart.getData().add(vm.temperatureProperty());
    barChart.getData().add(vm.thermometerProperty());
- }*/
+ }
 }
