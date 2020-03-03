@@ -14,6 +14,7 @@ public class OffState implements RadiatorState
 
   @Override public void onButtonDown(Radiator radiator)
   {
+    radiator.setPowerState(new OffState());
   }
 
   @Override public int getPower()
