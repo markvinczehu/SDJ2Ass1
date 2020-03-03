@@ -40,7 +40,7 @@ public class ViewHandler {
   private void FXMLLoader() {
     FXMLLoader loader = new FXMLLoader();
 
-    if(barChartViewScene == null) {
+    if(barChartViewScene == null && lineChartViewScene == null) {
       Parent root1 = getRootByPath("../BarChartView.fxml", loader);
       Parent root2 = getRootByPath("../LineChartView.fxml", loader);
       BarChartViewController controller1 = loader.getController();
