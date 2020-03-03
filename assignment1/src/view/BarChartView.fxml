@@ -12,10 +12,10 @@
    <items>
         <BarChart fx:id="barChartView" prefHeight="198.0" prefWidth="457.0">
             <xAxis>
-                <CategoryAxis fx:id="thermometers" prefHeight="26.0" prefWidth="543.0" side="BOTTOM" />
+                <CategoryAxis fx:id="timeX" prefHeight="26.0" prefWidth="543.0" side="BOTTOM" />
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="temperature" side="LEFT" />
+                <NumberAxis fx:id="tempY" side="LEFT" />
             </yAxis>
         </BarChart>
       <SplitPane dividerPositions="0.485" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
