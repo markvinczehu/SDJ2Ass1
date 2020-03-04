@@ -1,6 +1,9 @@
 package model;
 
-public class Thermometer
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class Thermometer implements Runnable
 {
     private String id;
     private double t;
@@ -35,5 +38,21 @@ public class Thermometer
     int sign = Math.random() * (left + right) > left ? 1 : -1;
     t0 += sign * Math.random();
     return t0;
+  }
+
+  @Override public void run()
+  {
+    while (true)
+    {
+      t = temperature(t, 2, d, 0, 6);
+      System.out.println(t + ", " + id);
+
+
+      try
+      {
+        Thread.sleep(1500);
+      }
+      catch (InterruptedException e){}
+    }
   }
 }

@@ -2,10 +2,16 @@ package model;
 
 import model.OffState;
 import model.RadiatorState;
+import util.PropertyChangeSubject;
 
-public class Radiator implements RadiatorState
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class Radiator implements RadiatorState, PropertyChangeSubject
 {
     private RadiatorState currentState = new OffState();
+    private Thermometer thermometer;
+    private PropertyChangeSupport support;
 
     public void turnUp()
     {
@@ -36,5 +42,39 @@ public class Radiator implements RadiatorState
 
     public int getPower(){
        return getPower();
+    }
+
+    @Override public void addPropertyChangeListener(String eventName,
+        PropertyChangeListener listener)
+    {
+        if(eventName == null || "".equals(eventName)){
+            addPropertyChangeListener(listener);
+        }
+        else{
+            support.addPropertyChangeListener(eventName, listener);
+        }
+    }
+
+    @Override public void addPropertyChangeListener(
+        PropertyChangeListener listener)
+    {
+        support.addPropertyChangeListener(listener);
+    }
+
+    @Override public void removePropertyChangeListener(String eventName,
+        PropertyChangeListener listener)
+    {
+        if(eventName == null || "".equals(eventName)){
+            removePropertyChangeListener(listener);
+        }
+        else {
+            support.removePropertyChangeListener(eventName, listener);
+        }
+    }
+
+    @Override public void removePropertyChangeListener(
+        PropertyChangeListener listener)
+    {
+        support.removePropertyChangeListener(listener);
     }
 }

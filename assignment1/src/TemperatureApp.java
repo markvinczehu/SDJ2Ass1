@@ -9,10 +9,8 @@ public class TemperatureApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ModelFactory mf = new ModelFactory();
-        Stage bs = new Stage();
-        Stage ls = new Stage();
         ViewModelFactory vmf = new ViewModelFactory(mf);
-        ViewHandler vh = new ViewHandler(bs, ls, vmf);
+        ViewHandler vh = new ViewHandler(vmf, stage);
         vh.start();
     }
 }
