@@ -1,72 +1,49 @@
 package core;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.stage.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import view.BarChartViewController;
 import view.LineChartViewController;
-import viewmodel.BarChartViewModel;
-import viewmodel.LineChartViewModel;
 
 import java.io.IOException;
 
 public class ViewHandler {
-  private Stage barStage, lineStage;
-  private ViewModelFactory viewModelFactory;
-  private Scene barChartViewScene, lineChartViewScene;
-  private BarChartViewModel barChartVM;
-  private LineChartViewModel lineChartVM;
 
-  public ViewHandler(Stage bs, Stage ls, ViewModelFactory vmf) {
+  private ViewModelFactory mvViewModel;
 
-    viewModelFactory = vmf;
-    barStage = bs;
-    lineStage = ls;
+  public ViewHandler(ViewModelFactory mvViewModel) {
+    this.mvViewModel = mvViewModel;
   }
 
-  public void start() {
-    barChartViewScene();
-    lineChartViewScene();
+  public void start() throws Exception {
+    openView("BarChart");
+    openView("LineChart");
   }
 
-  public void barChartViewScene() {
-    FXMLLoader();
-  }
-
-  public void lineChartViewScene() {
-    FXMLLoader();
-  }
-
-  public void FXMLLoader() {
+  public void openView(String viewToOpen) throws IOException {
+    Scene scene = null;
     FXMLLoader loader = new FXMLLoader();
-
-    if(barChartViewScene == null && lineChartViewScene == null) {
-      Parent root1 = getRootByPath("../BarChartView.fxml", loader);
-      Parent root2 = getRootByPath("../LineChartView.fxml", loader);
-      BarChartViewController controller1 = loader.getController();
-      LineChartViewController controller2 = loader.getController();
-      controller1.init(barChartVM);
-      controller2.init(lineChartVM);
-      barChartViewScene = new Scene(root1);
-      lineChartViewScene = new Scene(root2);
-    }
-    barStage.setTitle("Bar Chart");
-    barStage.setScene(barChartViewScene);
-    lineStage.setTitle("Line chart");
-    lineStage.setScene(lineChartViewScene);
-    barStage.show();
-    lineStage.show();
-  }
-
-  private Parent getRootByPath(String path, FXMLLoader loader) {
-    loader.setLocation(getClass().getResource(path));
     Parent root = null;
-    try {
+    Stage tmpStage = new Stage();
+    if("LineChart".equals(viewToOpen)) {
+      loader.setLocation(getClass().getResource("../view/LineChart.fxml"));
       root = loader.load();
-    } catch (IOException e) {
-      e.printStackTrace();
+      LineChartViewController view = loader.getController();
+      view.init(mvViewModel.getLineChartViewModel());
+      tmpStage.setTitle("Pie Chart");
+    } else if("BarChart".equals(viewToOpen)) {
+      loader.setLocation(getClass().getResource("../view/BarChart.fxml"));
+      root = loader.load();
+      BarChartViewController view = loader.getController();
+      view.init(mvViewModel.getBarChartViewModel());
+      tmpStage.setTitle("Bar Chart");
     }
-    return root;
+
+    scene = new Scene(root);
+    tmpStage.setScene(scene);
+    tmpStage.show();
   }
 }
 

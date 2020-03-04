@@ -1,6 +1,7 @@
 package core;
 
 import viewmodel.BarChartViewModel;
+import viewmodel.LineChartViewModel;
 
 public class ViewModelFactory
 {
@@ -19,5 +20,8 @@ public class ViewModelFactory
     barChartViewModel = new BarChartViewModel(modelFactory.getRadiatorState());
     }
     return barChartViewModel;
+  }
+
+  public LineChartViewModel getLineChartViewModel() {
   }
 }
