@@ -3,7 +3,7 @@ package model;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class Thermometer implements PropertyChangeListener, Runnable
+public class Thermometer implements Runnable
 {
     private String id;
     private double t;
@@ -38,11 +38,6 @@ public class Thermometer implements PropertyChangeListener, Runnable
     int sign = Math.random() * (left + right) > left ? 1 : -1;
     t0 += sign * Math.random();
     return t0;
-  }
-
-  @Override public void propertyChange(PropertyChangeEvent evt)
-  {
-
   }
 
   @Override public void run()
