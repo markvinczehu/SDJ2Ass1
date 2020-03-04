@@ -13,8 +13,7 @@ public class ViewModelFactory
     this.modelFactory = modelFactory;
   }
 
-  public BarChartViewModel getBarChartViewModel()
-  {
+  public BarChartViewModel getBarChartViewModel() {
     if(barChartViewModel == null)
     {
     barChartViewModel = new BarChartViewModel(modelFactory.getRadiatorState());
@@ -23,5 +22,7 @@ public class ViewModelFactory
   }
 
   public LineChartViewModel getLineChartViewModel() {
+
+
   }
 }
