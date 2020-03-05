@@ -7,7 +7,7 @@ import util.PropertyChangeSubject;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class Radiator implements RadiatorState, PropertyChangeSubject
+public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
 {
     private RadiatorState currentState = new OffState();
     private Thermometer thermometer;
@@ -76,5 +76,10 @@ public class Radiator implements RadiatorState, PropertyChangeSubject
         PropertyChangeListener listener)
     {
         support.removePropertyChangeListener(listener);
+    }
+
+    @Override public void run()
+    {
+
     }
 }
