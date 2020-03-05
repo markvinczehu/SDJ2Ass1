@@ -29,9 +29,9 @@ public class TemperatureModelManager implements TemperatureModel
       }
     }
 
-  @Override public void getLastInsertedTemp(Temperature temperature)
+  @Override public Temperature getLastInsertedTemp(Temperature temperature)
   {
-
+    return temperatureList.getLastTemperature("");
   }
 
    public Temperature getLastInsertedTemperature()
@@ -39,7 +39,7 @@ public class TemperatureModelManager implements TemperatureModel
       return temperatureList.getLastTemperature(null);
     }
 
-     public Temperature getLastInsertedTemperature(String id)
+    public Temperature getLastInsertedTemperature(String id)
     {
       return temperatureList.getLastTemperature(id);
     }
