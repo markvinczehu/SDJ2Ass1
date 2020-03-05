@@ -3,11 +3,13 @@ package core;
 import model.Radiator;
 import model.RadiatorState;
 import viewmodel.BarChartViewModel;
+import viewmodel.LineChartViewModel;
 
 public class ModelFactory
 {
   private RadiatorState radiatorState;
   private BarChartViewModel barChartViewModel;
+  private LineChartViewModel lineChartViewModel;
 
   public RadiatorState getRadiatorState()
   {
@@ -24,5 +26,13 @@ public class ModelFactory
       barChartViewModel = new BarChartViewModel(radiatorState);
     }
       return barChartViewModel;
+  }
+  public LineChartViewModel getLineChartViewModel()
+  {
+    if(lineChartViewModel == null)
+    {
+      lineChartViewModel = new LineChartViewModel(radiatorState);
+    }
+    return lineChartViewModel;
   }
 }
