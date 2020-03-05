@@ -5,6 +5,7 @@ import model.TemperatureList;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class TemperatureModelManager implements TemperatureModel
@@ -44,17 +45,17 @@ public class TemperatureModelManager implements TemperatureModel
       return temperatureList.getLastTemperature(id);
     }
 
-    public void addListener(ActionListener listener)
+    public void addListener(PropertyChangeListener listener)
     {
 
     }
 
-     public void removeListener(ActionListener listener)
+     public void removeListener(PropertyChangeListener listener)
     {
 
     }
 
-    public void actionPerformed(ActionEvent e)
+    public void actionPerformed(PropertyChangeListener e)
     {
 
     }
