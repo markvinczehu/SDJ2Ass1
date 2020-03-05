@@ -16,7 +16,8 @@ public class Temperature
   {
     return value;
   }
-  public String getId() {
+  public String getId()
+  {
     return id;
   }
   public DateTime getTime()
