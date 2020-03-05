@@ -2,6 +2,7 @@ package model;
 
 import model.Radiator;
 import model.RadiatorState;
+import org.w3c.dom.CDATASection;
 
 public class PowerStateOne implements RadiatorState
 {
