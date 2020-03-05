@@ -17,6 +17,15 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     private PowerStateTwo powerStateTwo;
     private PowerStateThree powerStateThree;
 
+    public Radiator(OffState offState, PowerStateOne powerStateOne, PowerStateTwo powerStateTwo, PowerStateThree powerStateThree)
+    {
+        this.offState=offState;
+        this.powerStateOne=powerStateOne;
+        this.powerStateTwo=powerStateTwo;
+        this.powerStateThree=powerStateThree;
+
+    }
+
     public void turnUp()
     {
         currentState.onButtonUp(this);
