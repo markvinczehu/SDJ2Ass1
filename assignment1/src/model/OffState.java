@@ -19,6 +19,6 @@ public class OffState implements RadiatorState
 
   @Override public int getPower()
   {
-    return 0;
+    return POWER;
   }
 }
