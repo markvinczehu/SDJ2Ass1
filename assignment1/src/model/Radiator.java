@@ -12,6 +12,7 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     private RadiatorState currentState = new OffState();
     private Thermometer thermometer;
     private PropertyChangeSupport support;
+    private Temperature temp;
 
     public void turnUp()
     {
@@ -28,6 +29,11 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     public RadiatorState currentState()
     {
         return currentState;
+    }
+
+    public double getTemp()
+    {
+        return temp.getValue();
     }
 
     @Override public void onButtonUp(Radiator radiator)
@@ -80,6 +86,7 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
 
     @Override public void run()
     {
-
+        Temperature t = new Temperature("0" ,temp.getValue());
+        t.changeValue();
     }
 }

@@ -33,7 +33,7 @@ public class ViewHandler {
       root = loader.load();
       LineChartViewController view = loader.getController();
       view.init(mvViewModel.getLineChartViewModel());
-      stage.setTitle("Pie Chart");
+      stage.setTitle("Line Chart");
     } /*else if("BarChart".equals(viewToOpen)) {
       loader.setLocation(getClass().getResource("../view/BarChartView.fxml"));
       root = loader.load();

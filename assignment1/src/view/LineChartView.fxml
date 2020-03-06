@@ -21,12 +21,12 @@
         <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                 <children>
-                    <Button fx:id="plusButton" layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onAction="#onIncTemp" text="+" />
+                    <Button fx:id="plusButton" layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onIncTemp" text="+" />
                 </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                 <children>
-                    <Button fx:id="minusButton" layoutX="27.0" layoutY="36.0" mnemonicParsing="false" onAction="#onIncTemp" text="-" />
+                    <Button fx:id="minusButton" layoutX="27.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#onIncTemp" text="-" />
                 </children>
             </AnchorPane>
         </items>
