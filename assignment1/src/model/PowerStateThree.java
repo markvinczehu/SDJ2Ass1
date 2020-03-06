@@ -29,7 +29,7 @@ public class PowerStateThree implements RadiatorState, Runnable
 
   @Override public int getPower()
   {
-    return 3;
+    return POWER;
   }
 
   @Override public void run()
@@ -38,7 +38,9 @@ public class PowerStateThree implements RadiatorState, Runnable
     {
       Thread.sleep(1000);
     }
-    catch (InterruptedException e){}
+    catch (InterruptedException e){
+      System.out.println("I am Error");
+    }
     radiator.setPowerState(new PowerStateTwo());
   }
 }

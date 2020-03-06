@@ -2,6 +2,7 @@ package model;
 
 import model.Radiator;
 import model.RadiatorState;
+import org.w3c.dom.CDATASection;
 
 public class PowerStateOne implements RadiatorState
 {
@@ -19,6 +20,6 @@ public class PowerStateOne implements RadiatorState
 
   @Override public int getPower()
   {
-    return 1;
+    return POWER;
   }
 }
