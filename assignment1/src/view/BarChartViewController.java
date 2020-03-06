@@ -27,6 +27,5 @@ public class BarChartViewController
    thermometers.setLabel("Thermometers");
 
    barChart.getData().addAll(set1);
-
  }
 }
