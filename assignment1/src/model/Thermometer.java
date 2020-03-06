@@ -3,7 +3,7 @@ package model;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class Thermometer implements Runnable
+public class Thermometer implements Runnable, PropertyChangeListener
 {
     private String id;
     private double t;
@@ -54,5 +54,10 @@ public class Thermometer implements Runnable
       }
       catch (InterruptedException e){}
     }
+  }
+
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+
   }
 }

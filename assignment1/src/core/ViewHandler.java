@@ -12,38 +12,39 @@ import java.io.IOException;
 public class ViewHandler {
 
   private ViewModelFactory mvViewModel;
+  private Stage stage;
 
-  public ViewHandler(ViewModelFactory mvViewModel) {
+  public ViewHandler(ViewModelFactory mvViewModel, Stage stage) {
     this.mvViewModel = mvViewModel;
+    this.stage = stage;
   }
 
   public void start() throws Exception {
-    openView("BarChart");
+    //openView("BarChart");
     openView("LineChart");
   }
 
   public void openView(String viewToOpen) throws IOException {
-    Scene scene = null;
+    Scene scene;
     FXMLLoader loader = new FXMLLoader();
     Parent root = null;
-    Stage tmpStage = new Stage();
     if("LineChart".equals(viewToOpen)) {
-      loader.setLocation(getClass().getResource("../view/LineChart.fxml"));
+      loader.setLocation(getClass().getResource("../view/LineChartView.fxml"));
       root = loader.load();
       LineChartViewController view = loader.getController();
       view.init(mvViewModel.getLineChartViewModel());
-      tmpStage.setTitle("Pie Chart");
-    } else if("BarChart".equals(viewToOpen)) {
-      loader.setLocation(getClass().getResource("../view/BarChart.fxml"));
+      stage.setTitle("Pie Chart");
+    } /*else if("BarChart".equals(viewToOpen)) {
+      loader.setLocation(getClass().getResource("../view/BarChartView.fxml"));
       root = loader.load();
       BarChartViewController view = loader.getController();
       view.init(mvViewModel.getBarChartViewModel());
-      tmpStage.setTitle("Bar Chart");
-    }
+      stage.setTitle("Bar Chart");
+    }*/
 
     scene = new Scene(root);
-    tmpStage.setScene(scene);
-    tmpStage.show();
+    stage.setScene(scene);
+    stage.show();
   }
 }
 

@@ -19,6 +19,6 @@ public class PowerStateTwo implements RadiatorState
 
   @Override public int getPower()
   {
-    return 2;
+    return POWER;
   }
 }

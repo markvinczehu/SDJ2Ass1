@@ -34,11 +34,9 @@ public class LineChartViewController
       tempY.lowerBoundProperty().bind(vm.lowerBoundProperty());
       tempY.setTickUnit(0.1);
 
-      while(true)
-      {
+
         lineChart.getData().add(vm.temperatureProperty());
         lineChart.getData().add(vm.thermometerProperty());
-      }
     }
 
   public void onIncTemp(ActionEvent actionEvent)

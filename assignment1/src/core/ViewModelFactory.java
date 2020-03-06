@@ -21,7 +21,7 @@ public class ViewModelFactory {
   }
 
   public LineChartViewModel getLineChartViewModel() {
-    if(getLineChartViewModel() == null) {
+    if(lineChartViewModel == null) {
       lineChartViewModel = new LineChartViewModel(modelFactory.getRadiatorState());
     }
     return lineChartViewModel;
