@@ -12,19 +12,7 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     private RadiatorState currentState = new OffState();
     private Thermometer thermometer;
     private PropertyChangeSupport support;
-    private OffState offState;
-    private PowerStateOne powerStateOne;
-    private PowerStateTwo powerStateTwo;
-    private PowerStateThree powerStateThree;
-
-    public Radiator(OffState offState, PowerStateOne powerStateOne, PowerStateTwo powerStateTwo, PowerStateThree powerStateThree)
-    {
-        this.offState=offState;
-        this.powerStateOne=powerStateOne;
-        this.powerStateTwo=powerStateTwo;
-        this.powerStateThree=powerStateThree;
-
-    }
+    private Temperature temp;
 
     public void turnUp()
     {
@@ -43,6 +31,11 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
         return currentState;
     }
 
+    public double getTemp()
+    {
+        return temp.getValue();
+    }
+
     @Override public void onButtonUp(Radiator radiator)
     {
         radiator.turnUp();
@@ -54,23 +47,7 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     }
 
     public int getPower(){
-       if (offState.getPower()==0)
-       {
-           return 0;
-       }
-       if (powerStateOne.getPower()==1)
-       {
-           return 1;
-       }
-       if (powerStateTwo.getPower()==2)
-       {
-           return 2;
-       }
-       if (powerStateThree.getPower()==3)
-       {
-           return 3;
-       }
-       return 0;
+       return getPower();
     }
 
     @Override public void addPropertyChangeListener(String eventName,
@@ -109,6 +86,7 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
 
     @Override public void run()
     {
-
+        Temperature t = new Temperature("0" ,temp.getValue());
+        t.changeValue();
     }
 }

@@ -5,6 +5,7 @@ public class Temperature
   private String id;
   private double value;
   private DateTime time;
+  private Radiator radiator;
 
   public Temperature(String id, double value)
   {
@@ -16,8 +17,27 @@ public class Temperature
   {
     return value;
   }
-  public String getId()
+  public double changeValue()
   {
+    if(radiator.currentState().equals(new OffState()))
+    {
+      value = 0;
+    }
+    else if(radiator.currentState().equals(new PowerStateOne()))
+    {
+      value = 20;
+    }
+    else if(radiator.currentState().equals(new PowerStateTwo()))
+    {
+      value = 30;
+    }
+    else if(radiator.currentState().equals(new PowerStateThree(radiator)))
+    {
+      value = 50;
+    }
+    return value;
+  }
+  public String getId() {
     return id;
   }
   public DateTime getTime()
