@@ -1,37 +1,64 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
-import model.RadiatorState;
+import mediator.TemperatureModel;
+
+import java.beans.PropertyChangeEvent;
 
 public class LineChartViewModel
 {
-  private RadiatorState radiatorState;
-  private DoubleProperty upperBound;
-  private DoubleProperty lowerBound;
+
+  private DoubleProperty x;
+  private DoubleProperty y;
+  private DoubleProperty z;
   private StringProperty thermometer;
   private StringProperty temperature;
 
+  private StringProperty updateTimeStamp;
 
-  public LineChartViewModel(RadiatorState model)
+  public  LineChartViewModel(TemperatureModel model)
   {
-    this.radiatorState=model;
-    this.upperBound = new SimpleDoubleProperty();
-    this.lowerBound = new SimpleDoubleProperty();
+    updateTimeStamp = new SimpleStringProperty("Last update: ");
+    model.addListener("Data", evt -> updateLineChart(evt));
+    model.addListener("TimeUpdate", evt -> timeStampUpdated(evt));
+    x = new SimpleDoubleProperty();
+    y = new SimpleDoubleProperty();
+    z = new SimpleDoubleProperty();
     this.thermometer = new SimpleStringProperty();
     this.temperature = new SimpleStringProperty();
   }
-  public ObservableValue<? extends Number> upperBoundProperty()
-  {
-    return upperBound;
+
+  public void updateLineChart(PropertyChangeEvent evt) {
+    Platform.runLater(() -> {
+      double[] vals = (double[]) evt.getNewValue();
+      x.setValue(vals[0]);
+      y.setValue(vals[1]);
+      z.setValue(vals[2]);
+    });
+
   }
 
-  public ObservableValue<? extends Number> lowerBoundProperty()
-  {
-    return lowerBound;
+  public StringProperty updateTimeStampProperty() {
+    return updateTimeStamp;
+  }
+  public ObservableValue xProperty() {
+    return x;
+  }
+
+  public ObservableValue yProperty() {
+    return y;
+  }
+
+  public ObservableValue zProperty() {
+    return z;
+  }
+  private void timeStampUpdated(PropertyChangeEvent evt) {
+    Platform.runLater(() -> updateTimeStamp.setValue("Last updated: " + evt.getNewValue()));
   }
 
   public StringProperty thermometerProperty()
