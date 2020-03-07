@@ -35,7 +35,28 @@ public class TemperatureModelManager implements TemperatureModel
     return temperatureList.getLastTemperature("");
   }
 
-   public Temperature getLastInsertedTemperature()
+  @Override public double[] getDataValues()
+  {
+    return new double[0];
+  }
+
+  @Override public String getLastUpdateTimeStamp()
+  {
+    return null;
+  }
+
+  @Override public void addListener(String name,
+      PropertyChangeListener listener)
+  {
+
+  }
+
+  @Override public void saveData(double[] data)
+  {
+
+  }
+
+  public Temperature getLastInsertedTemperature()
     {
       return temperatureList.getLastTemperature(null);
     }
