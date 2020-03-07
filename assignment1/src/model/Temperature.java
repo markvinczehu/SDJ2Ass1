@@ -13,30 +13,28 @@ public class Temperature
     this.value = value;
     time = new DateTime();
   }
+  public Temperature()
+  {
+    this.id = "id1";
+    this.value = 0;
+    time = new DateTime();
+  }
+  public Temperature(double value)
+  {
+    this.id = "id2";
+    this.value = 0;
+    time = new DateTime();
+  }
   public double getValue()
   {
     return value;
   }
-  public double changeValue()
+
+  public void setValue(double value)
   {
-    if(radiator.currentState().equals(new OffState()))
-    {
-      value = 0;
-    }
-    else if(radiator.currentState().equals(new PowerStateOne()))
-    {
-      value = 20;
-    }
-    else if(radiator.currentState().equals(new PowerStateTwo()))
-    {
-      value = 30;
-    }
-    else if(radiator.currentState().equals(new PowerStateThree(radiator)))
-    {
-      value = 50;
-    }
-    return value;
+    this.value = value;
   }
+
   public String getId() {
     return id;
   }

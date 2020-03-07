@@ -1,5 +1,7 @@
 package model;
 
+import util.PropertyChangeSubject;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -8,12 +10,34 @@ public class Thermometer implements Runnable, PropertyChangeListener
     private String id;
     private double t;
     private int d;
+    private Temperature temperature;
 
   public Thermometer(String id, double t, int d)
     {
       this.id = id;
       this.t = t;
       this.d = d;
+    }
+    public Thermometer(PropertyChangeSubject subject)
+    {
+      subject.addPropertyChangeListener(this::reactToChange);
+    }
+    public void reactToChange(PropertyChangeEvent event)
+    {
+      double oldValue = (double) event.getOldValue();
+      double newValue = (double) event.getNewValue();
+      for (int i = 0; i < 5000; i++)
+      {
+        temperature.setValue(newValue);
+        try
+        {
+          Thread.sleep(1000);
+        }
+        catch (InterruptedException e)
+        {}
+
+      }
+
     }
 
   public double temperature(double t, int p, int d, double t0, int s)
@@ -45,9 +69,6 @@ public class Thermometer implements Runnable, PropertyChangeListener
     while (true)
     {
       t = temperature(t, 2, d, 0, 6);
-      System.out.println(t + ", " + id);
-
-
       try
       {
         Thread.sleep(1500);
@@ -58,6 +79,8 @@ public class Thermometer implements Runnable, PropertyChangeListener
 
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
+
+
 
   }
 }

@@ -7,6 +7,12 @@ import org.w3c.dom.CDATASection;
 public class PowerStateOne implements RadiatorState
 {
   private int POWER = 1;
+  private Temperature temperature;
+
+  public PowerStateOne()
+  {
+    temperature = new Temperature(20);
+  }
 
   @Override public void onButtonUp(Radiator radiator)
   {

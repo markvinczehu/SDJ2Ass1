@@ -8,9 +8,11 @@ public class PowerStateThree implements RadiatorState, Runnable
   private int POWER = 3;
   private Radiator radiator;
   private Thread thread;
+  private Temperature temperature;
 
   public PowerStateThree(Radiator radiator)
   {
+    temperature = new Temperature(50);
     this.radiator = radiator;
     this.thread = new Thread(this);
     thread.setDaemon(true);
