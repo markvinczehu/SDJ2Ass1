@@ -1,4 +1,4 @@
-package viewmodel;
+package view;
 
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
@@ -43,6 +43,9 @@ public class BarChartViewModel
 
   }
 
+  public StringProperty updateTimeStampProperty() {
+    return updateTimeStamp;
+  }
     public ObservableValue xProperty() {
       return x;
     }

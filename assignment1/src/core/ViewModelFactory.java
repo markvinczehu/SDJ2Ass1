@@ -1,6 +1,6 @@
 package core;
 
-import viewmodel.BarChartViewModel;
+import view.BarChartViewModel;
 import viewmodel.LineChartViewModel;
 
 public class ViewModelFactory {

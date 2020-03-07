@@ -2,7 +2,7 @@ package core;
 
 import model.Radiator;
 import model.RadiatorState;
-import viewmodel.BarChartViewModel;
+import view.BarChartViewModel;
 import viewmodel.LineChartViewModel;
 
 public class ModelFactory
