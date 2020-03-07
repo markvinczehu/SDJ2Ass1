@@ -74,6 +74,8 @@ public class LineChartViewController
       }
     }
     catch (Exception e)
-    {}
+    {
+      System.out.println("I am error");
+    }
   }
 }
