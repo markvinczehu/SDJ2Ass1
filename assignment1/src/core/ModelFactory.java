@@ -4,7 +4,7 @@ import mediator.TemperatureModel;
 import model.Radiator;
 import model.RadiatorState;
 import view.BarChartViewModel;
-import viewmodel.LineChartViewModel;
+import view.LineChartViewModel;
 
 public class ModelFactory
 {
