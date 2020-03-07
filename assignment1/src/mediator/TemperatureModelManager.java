@@ -28,7 +28,7 @@ public class TemperatureModelManager implements TemperatureModel
     @Override public void addTemperature(String id, double value)
     {
       Temperature temperature = new Temperature(id, value);
-      Temperature old = getLastInsertedTemperature();
+      Temperature old = getLastInsertedTemperature("1");
       this.temperatureList.addTemperature(temperature);
       changeSupport.firePropertyChange("Temperature Update", old, temperature);
       if (old != null && old.getValue() != temperature.getValue())
@@ -69,11 +69,6 @@ public class TemperatureModelManager implements TemperatureModel
     changeSupport.firePropertyChange("Data", null, new double[]{x, y, z});
     calcTimeStamp();
   }
-
-  public Temperature getLastInsertedTemperature()
-    {
-      return temperatureList.getLastTemperature(null);
-    }
 
     public Temperature getLastInsertedTemperature(String id)
     {
