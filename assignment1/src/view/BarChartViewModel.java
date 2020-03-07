@@ -1,4 +1,4 @@
-package viewmodel;
+package view;
 
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
@@ -7,7 +7,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import mediator.TemperatureModel;
-import model.RadiatorState;
 
 import java.beans.PropertyChangeEvent;
 
@@ -44,6 +43,9 @@ public class BarChartViewModel
 
   }
 
+  public StringProperty updateTimeStampProperty() {
+    return updateTimeStamp;
+  }
     public ObservableValue xProperty() {
       return x;
     }
