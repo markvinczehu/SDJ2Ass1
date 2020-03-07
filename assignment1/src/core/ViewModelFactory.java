@@ -15,14 +15,14 @@ public class ViewModelFactory {
 
   public BarChartViewModel getBarChartViewModel() {
     if(barChartViewModel == null) {
-    barChartViewModel = new BarChartViewModel(modelFactory.getRadiatorState());
+    barChartViewModel = new BarChartViewModel(modelFactory.getModel());
     }
     return barChartViewModel;
   }
 
   public LineChartViewModel getLineChartViewModel() {
     if(lineChartViewModel == null) {
-      lineChartViewModel = new LineChartViewModel(modelFactory.getRadiatorState());
+      lineChartViewModel = new LineChartViewModel(modelFactory.getModel());
     }
     return lineChartViewModel;
   }

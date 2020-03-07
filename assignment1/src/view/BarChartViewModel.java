@@ -21,7 +21,7 @@ public class BarChartViewModel
 
   private StringProperty updateTimeStamp;
 
-  public  BarChartViewModel(TemperatureModel model)
+  public  BarChartViewModel(Model model)
   {
     updateTimeStamp = new SimpleStringProperty("Last update: ");
     model.addListener("Data", evt -> updateBarChart(evt));

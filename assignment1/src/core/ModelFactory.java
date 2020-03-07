@@ -8,32 +8,10 @@ import view.LineChartViewModel;
 
 public class ModelFactory
 {
-  private RadiatorState radiatorState;
-  private BarChartViewModel barChartViewModel;
-  private LineChartViewModel lineChartViewModel;
+  private Model model;
 
-  public RadiatorState getRadiatorState()
-  {
-    if(radiatorState == null)
-    {
-      radiatorState = new Radiator();
-    }
-    return radiatorState;
-  }
-  public BarChartViewModel getBarChartViewModel()
-  {
-    if(barChartViewModel == null)
-    {
-      barChartViewModel = new BarChartViewModel((TemperatureModel) radiatorState);
-    }
-      return barChartViewModel;
-  }
-  public LineChartViewModel getLineChartViewModel()
-  {
-    if(lineChartViewModel == null)
-    {
-      lineChartViewModel = new LineChartViewModel(radiatorState);
-    }
-    return lineChartViewModel;
+  public Model getModel() {
+    if(model == null) model = new DataModel();
+    return model;
   }
 }
