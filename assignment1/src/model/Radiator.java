@@ -7,9 +7,9 @@ import util.PropertyChangeSubject;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
+public class Radiator implements RadiatorState, PropertyChangeSubject
 {
-    private RadiatorState currentState = new OffState();
+    private RadiatorState currentState;
     private Thermometer thermometer;
     private PropertyChangeSupport support;
     private Temperature temp;
@@ -31,10 +31,23 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
         return currentState;
     }
 
+    public Radiator()
+    {
+        currentState = new OffState();
+        support = new PropertyChangeSupport(this);
+        this.temp = new Temperature();
+    }
+
+    public void setTemp(Temperature temp)
+    {
+        this.temp = temp;
+    }
+
     public double getTemp()
     {
         return temp.getValue();
     }
+
 
     @Override public void onButtonUp(Radiator radiator)
     {
@@ -45,7 +58,19 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
     {
         radiator.turnDown();
     }
-
+    public void start() throws InterruptedException
+    {
+        for (int i = 0; i < 5000; i++)
+        {
+            temp.setValue(getTemp());
+            try
+            {
+                Thread.sleep(500);
+            }
+            catch (Exception e)
+            {}
+        }
+    }
     public int getPower(){
        return getPower();
     }
@@ -84,9 +109,4 @@ public class Radiator implements RadiatorState, PropertyChangeSubject, Runnable
         support.removePropertyChangeListener(listener);
     }
 
-    @Override public void run()
-    {
-        Temperature t = new Temperature("0" ,temp.getValue());
-        t.changeValue();
-    }
 }
