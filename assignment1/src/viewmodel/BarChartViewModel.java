@@ -7,7 +7,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import mediator.TemperatureModel;
-import model.RadiatorState;
 
 import java.beans.PropertyChangeEvent;
 
