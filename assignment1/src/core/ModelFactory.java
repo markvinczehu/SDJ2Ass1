@@ -1,5 +1,6 @@
 package core;
 
+import mediator.TemperatureModel;
 import model.Radiator;
 import model.RadiatorState;
 import view.BarChartViewModel;
@@ -23,7 +24,7 @@ public class ModelFactory
   {
     if(barChartViewModel == null)
     {
-      barChartViewModel = new BarChartViewModel(radiatorState);
+      barChartViewModel = new BarChartViewModel((TemperatureModel) radiatorState);
     }
       return barChartViewModel;
   }
