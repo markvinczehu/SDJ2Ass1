@@ -23,12 +23,12 @@ public class ModelFactory
     {
       @Override public void onButtonUp(Radiator radiator)
       {
-
+        radiator.turnUp();
       }
 
       @Override public void onButtonDown(Radiator radiator)
       {
-
+        radiator.turnDown();
       }
 
       @Override public int getPower()
