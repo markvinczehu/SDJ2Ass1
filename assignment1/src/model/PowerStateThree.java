@@ -45,5 +45,9 @@ public class PowerStateThree implements RadiatorState, Runnable
     }
     radiator.setPowerState(new PowerStateTwo());
   }
+  public Temperature temperature()
+  {
+    return temperature;
+  }
 }
 

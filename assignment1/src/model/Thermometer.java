@@ -81,6 +81,5 @@ public class Thermometer implements Runnable, PropertyChangeListener
   {
 
 
-
   }
 }

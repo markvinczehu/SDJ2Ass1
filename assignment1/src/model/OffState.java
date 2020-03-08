@@ -27,4 +27,8 @@ public class OffState implements RadiatorState
   {
     return POWER;
   }
+  public Temperature temperature()
+  {
+    return temperature;
+  }
 }
