@@ -21,7 +21,7 @@ public class LineChartViewModel
 
   private StringProperty updateTimeStamp;
 
-  public  LineChartViewModel(Model model)
+  public  LineChartViewModel(TemperatureModel model)
   {
     updateTimeStamp = new SimpleStringProperty("Last update: ");
     model.addListener("Data", evt -> updateLineChart(evt));
