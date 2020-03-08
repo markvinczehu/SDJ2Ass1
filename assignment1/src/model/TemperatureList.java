@@ -45,11 +45,6 @@ public class TemperatureList
     return null;
   }
 
-  public int getSize()
-  {
-    return list.size();
-  }
-
   public String toString()
   {
     String s = "{";
