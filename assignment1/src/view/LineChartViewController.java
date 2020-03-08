@@ -43,7 +43,6 @@ public class LineChartViewController
       lineChart.getData().add(dataSeries);
 
     }
-//maybe change to two separate buttons
   public void onIncTemp(ActionEvent actionEvent)
   {
     System.out.println("blablblasd");
