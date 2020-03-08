@@ -58,6 +58,12 @@ public class Radiator implements RadiatorState, PropertyChangeSubject
     {
         radiator.turnDown();
     }
+
+    @Override public int getPower()
+    {
+        return 0;
+    }
+
     public void start() throws InterruptedException
     {
         for (int i = 0; i < 5000; i++)
@@ -68,13 +74,11 @@ public class Radiator implements RadiatorState, PropertyChangeSubject
                 Thread.sleep(500);
             }
             catch (Exception e)
-            {}
+            {
+                System.out.println("I am error");
+            }
         }
     }
-    public int getPower(){
-       return getPower();
-    }
-
     @Override public void addPropertyChangeListener(String eventName,
         PropertyChangeListener listener)
     {

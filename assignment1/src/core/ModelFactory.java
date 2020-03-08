@@ -19,7 +19,23 @@ public class ModelFactory
   }
   public RadiatorState radiatorModel()
   {
-    if (radiatorModel == null) radiatorModel = new Radiator();
+    if (radiatorModel == null) radiatorModel = new RadiatorState()
+    {
+      @Override public void onButtonUp(Radiator radiator)
+      {
+
+      }
+
+      @Override public void onButtonDown(Radiator radiator)
+      {
+
+      }
+
+      @Override public int getPower()
+      {
+        return 0;
+      }
+    };
     return radiatorModel;
   }
 }
