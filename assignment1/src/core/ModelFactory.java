@@ -11,9 +11,15 @@ import view.LineChartViewModel;
 public class ModelFactory
 {
   private TemperatureModel model;
+  private RadiatorState radiatorModel;
 
   public TemperatureModel getModel() {
     if(model == null) model = new TemperatureModelManager();
     return model;
+  }
+  public RadiatorState radiatorModel()
+  {
+    if (radiatorModel == null) radiatorModel = new Radiator();
+    return radiatorModel;
   }
 }
